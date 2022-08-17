@@ -13,7 +13,10 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 public class JWTHelper {
 
-public static String createToken(String scopes) {
+	/*
+	 * https://github.com/auth0/java-jwt
+	 */
+	public static String createToken(String scopes) {
 		
 		try {
 		    Algorithm algorithm = Algorithm.HMAC256("secret");
