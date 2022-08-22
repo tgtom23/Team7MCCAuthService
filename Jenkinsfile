@@ -1,6 +1,6 @@
 node {
     stage ("Checkout AuthService"){
-        git branch: 'main', url: ' https://github.com/tgtom23/Team7MCCAuthService'
+        git branch: 'main', url: ' https://github.com/tgtom23/Team7MCCAuthService.git'
     }
     
     stage ("Gradle Build - AuthService") {
