@@ -4,11 +4,11 @@ node {
     }
     
     stage ("Gradle Build - AuthService") {
-        sh 'gradle -b Team7MCCAuthService/build.gradle clean build'
+        sh 'gradle clean build'
     }
     
     stage ("Gradle Bootjar-Package - AuthService") {
-        sh 'gradle -b Team7MCCAuthService/build.gradle bootjar'
+        sh 'gradle bootjar'
     }
     
     stage('User Acceptance Test - AuthService') {
@@ -19,7 +19,7 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Release - AuthService') {
-	      sh 'gradle -b Team7MCCAuthService/build.gradle build -x test'
+	      sh 'gradle build -x test'
 	      sh 'echo Release this version'
 	    }
 	  }
