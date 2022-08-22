@@ -1,14 +1,14 @@
 node {
     stage ("Checkout AuthService"){
-        git branch: 'main', url: ' https://github.com/tgtom23/Team7MCCAuthService.git'
+        git branch: 'master', url: ' https://github.com/tgtom23/Team7MCCAuthService.git'
     }
     
     stage ("Gradle Build - AuthService") {
-        sh 'gradle clean build'
+        sh 'gradle -b Team7MCCAuthService/build.gradle clean build'
     }
     
     stage ("Gradle Bootjar-Package - AuthService") {
-        sh 'gradle bootjar'
+        sh 'gradle -b Team7MCCAuthService/build.gradle bootjar'
     }
     
     stage('User Acceptance Test - AuthService') {
@@ -19,7 +19,7 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Release - AuthService') {
-	      sh 'gradle build -x test'
+	      sh 'gradle -b Team7MCCAuthService/build.gradle build -x test'
 	      sh 'echo Release this version'
 	    }
 	  }
